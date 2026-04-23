@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>你的名字 - Personal Portfolio</title>
+  <meta name="description" content="你的个人主页 / 简历 / 项目作品集" />
+  <style>
+    :root {
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --text: #1f2d3d;
+      --muted: #6b7a90;
+      --primary: #234ea0;
+      --primary-soft: #eaf0ff;
+      --border: #e3e8f2;
+      --shadow: 0 10px 30px rgba(31,45,61,0.08);
+    }
+
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body {
+      margin: 0;
+      font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary);
+      text-decoration: none;
+    }
+    a:hover { text-decoration: underline; }
+
+    .container {
+      width: min(1120px, calc(100% - 32px));
+      margin: 0 auto;
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(247,249,252,0.9);
+      backdrop-filter: blur(10px);
+      border-bottom: 1px solid var(--border);
+    }
+
+    .nav {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+      padding: 14px 0;
+    }
+
+    .brand {
+      font-size: 28px;
+      font-weight: 800;
+      color: var(--primary);
+      letter-spacing: 0.5px;
+    }
+
+    .nav-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 18px;
+      font-size: 16px;
+    }
+
+    .hero {
+      padding: 56px 0 32px;
+    }
+
+    .hero-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 32px;
+      box-shadow: var(--shadow);
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 28px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 6px solid var(--primary-soft);
+      background: #dfe7f7;
+      margin: 0 auto;
+      display: block;
+    }
+
+    .hero h1 {
+      margin: 0 0 8px;
+      font-size: 48px;
+      line-height: 1.15;
+      color: var(--primary);
+    }
+
+    .hero .subtitle {
+      font-size: 24px;
+      color: var(--muted);
+      margin-bottom: 14px;
+      font-weight: 600;
+    }
+
+    .hero .intro {
+      font-size: 18px;
+      margin-bottom: 18px;
+    }
+
+    .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px 18px;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .chip {
+      display: inline-flex;
+      align-items: center;
+      padding: 8px 14px;
+      border-radius: 999px;
+      background: var(--primary-soft);
+      color: var(--primary);
+      font-weight: 700;
+      font-size: 14px;
+    }
+
+    .section {
+      padding: 22px 0;
+    }
+
+    .section-title {
+      font-size: 30px;
+      margin: 0 0 18px;
+      color: var(--primary);
+    }
+
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: 24px;
+      padding: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 16px;
+    }
+
+    .item {
+      padding: 18px 20px;
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      background: #fff;
+    }
+
+    .item h3 {
+      margin: 0 0 6px;
+      font-size: 21px;
+    }
+
+    .item .time {
+      color: var(--muted);
+      font-size: 14px;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .project-title {
+      display: flex;
+      justify-content: space-between;
+      gap: 12px;
+      align-items: flex-start;
+      flex-wrap: wrap;
+    }
+
+    .tag {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--primary);
+      background: var(--primary-soft);
+      padding: 6px 10px;
+      border-radius: 999px;
+    }
+
+    ul {
+      margin: 10px 0 0 20px;
+      padding: 0;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 14px;
+      margin-top: 14px;
+    }
+
+    .contact-links a {
+      display: inline-block;
+      padding: 10px 14px;
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      background: #fff;
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 40px 0 56px;
+      font-size: 14px;
+    }
+
+    @media (max-width: 860px) {
+      .hero-card {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+      .hero h1 { font-size: 38px; }
+      .hero .subtitle { font-size: 22px; }
+      .meta, .chips, .contact-links { justify-content: center; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .nav { align-items: flex-start; flex-direction: column; }
+    }
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="container nav">
+      <div class="brand">你的名字</div>
+      <nav class="nav-links">
+        <a href="#about">关于我</a>
+        <a href="#education">教育背景</a>
+        <a href="#research">研究方向</a>
+        <a href="#projects">项目经历</a>
+        <a href="#awards">荣誉奖项</a>
+        <a href="#publications">论文成果</a>
+        <a href="#contact">联系方式</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="container">
+        <div class="hero-card">
+          <div>
+            <img class="avatar" src="avatar.jpg" alt="你的头像" />
+          </div>
+          <div>
+            <h1>你好，我是你的名字！</h1>
+            <div class="subtitle">人工智能本科生 / 申请方向：具身智能、机器人学习、多模态交互</div>
+            <div class="intro">
+              这里写一段 80–120 字的个人简介。建议写：你是谁、你在学什么、你目前最关注哪些方向、你希望未来做什么。
+            </div>
+            <div class="meta">
+              <span>📍 城市：中国 / 你的城市</span>
+              <span>🏫 学校：你的学校</span>
+              <span>📅 Last Update: 2026-04-22</span>
+              <span>📄 <a href="cv.pdf" target="_blank">查看简历 CV</a></span>
+            </div>
+            <div class="chips">
+              <span class="chip">Embodied AI</span>
+              <span class="chip">Robot Learning</span>
+              <span class="chip">Computer Vision</span>
+              <span class="chip">Imitation Learning</span>
+              <span class="chip">ROS2</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="about" class="section">
+      <div class="container card">
+        <h2 class="section-title">关于我</h2>
+        <p>
+          这里写你的总体介绍。建议写成 2 段：
+          第一段写学术身份、专业背景、研究兴趣；
+          第二段写你做过的代表性项目、你擅长的工具链，以及你未来的申请或研究目标。
+        </p>
+        <p>
+          你可以重点突出：OpenArm 复现、LeRobot 遥操作与模仿学习、股票预测、3D 视觉、音乐生成、SolidWorks/3D打印等。
+        </p>
+      </div>
+    </section>
+
+    <section id="education" class="section">
+      <div class="container">
+        <h2 class="section-title">教育背景</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">2023 – Present</div>
+            <h3>你的大学名称</h3>
+            <div>专业：人工智能</div>
+            <div>GPA / 排名：这里填</div>
+            <div>核心课程：机器学习、深度学习、计算机视觉、数据结构、计算机网络、机器人学等</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="research" class="section">
+      <div class="container">
+        <h2 class="section-title">研究方向</h2>
+        <div class="grid-2">
+          <div class="item">
+            <h3>具身智能 / 机器人学习</h3>
+            <p>这里写你对 embodied AI、teleoperation、imitation learning、manipulation 的兴趣。</p>
+          </div>
+          <div class="item">
+            <h3>多模态与计算机视觉</h3>
+            <p>这里写你对视觉感知、3D 视觉、动作理解、人机交互的兴趣。</p>
+          </div>
+          <div class="item">
+            <h3>时序建模与智能决策</h3>
+            <p>这里写你做过的 LSTM / BiLSTM / GA-LSTM / 金融预测相关经验。</p>
+          </div>
+          <div class="item">
+            <h3>创意 AI / 音乐生成</h3>
+            <p>这里写你对音乐生成、情感计算、脑机接口或符号音乐方向的兴趣。</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="section">
+      <div class="container">
+        <h2 class="section-title">项目经历</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="project-title">
+              <h3>OpenArm 机械臂复现与系统搭建</h3>
+              <span class="tag">机器人 / ROS2</span>
+            </div>
+            <div class="time">2025 – 2026</div>
+            <p>一句话概述项目目标。</p>
+            <ul>
+              <li>负责硬件方案调研、BOM 理解、连接器/线材/供电与 CAN 总线方案梳理。</li>
+              <li>完成 Ubuntu + ROS2 Humble + RViz / MoveIt 等环境搭建与调试。</li>
+              <li>梳理机械加工、3D 打印外壳与工程图对接流程。</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="project-title">
+              <h3>LeRobot 遥操作与离线模仿学习训练</h3>
+              <span class="tag">Imitation Learning</span>
+            </div>
+            <div class="time">2026</div>
+            <p>一句话概述数据采集、训练、部署流程。</p>
+            <ul>
+              <li>完成 leader/follower 标定、双臂遥操作、相机采集与数据集录制。</li>
+              <li>使用 ACT policy 进行离线训练，管理 checkpoint 与 Hugging Face 数据集。</li>
+              <li>排查坏样本、缓存路径、视频解码与服务器训练流程问题。</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="project-title">
+              <h3>基于历史数据与新闻驱动的股价预测</h3>
+              <span class="tag">Time Series / NLP</span>
+            </div>
+            <div class="time">2025</div>
+            <p>一句话概述你的论文或课程项目。</p>
+            <ul>
+              <li>构建 LSTM / GA-LSTM 与新闻情感分析的融合预测框架。</li>
+              <li>使用 BERT、chinese-bert-wwm-ext、cnsenti 进行新闻情感建模。</li>
+              <li>输出预测对比图、误差指标、回撤与策略收益分析。</li>
+            </ul>
+          </div>
+
+          <div class="item">
+            <div class="project-title">
+              <h3>3D视觉与实时动作捕捉系统</h3>
+              <span class="tag">3D Vision</span>
+            </div>
+            <div class="time">2025</div>
+            <p>一句话概述视觉系统和你的贡献。</p>
+            <ul>
+              <li>参与基于计算机 3D 视觉的实时全身动作捕捉系统开发调试。</li>
+              <li>熟悉 PyTorch3D、渲染、数据处理与可视化流程。</li>
+              <li>支持演示、环境配置与实验运行。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="awards" class="section">
+      <div class="container">
+        <h2 class="section-title">荣誉奖项</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">20XX</div>
+            <h3>奖项名称 1</h3>
+            <div>主办方 / 获奖等级</div>
+          </div>
+          <div class="item">
+            <div class="time">20XX</div>
+            <h3>奖项名称 2</h3>
+            <div>主办方 / 获奖等级</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="publications" class="section">
+      <div class="container">
+        <h2 class="section-title">论文成果 / 输出</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="time">Undergraduate Research / Paper / Demo</div>
+            <h3>这里填论文名或研究输出名</h3>
+            <p>这里用 2–4 句话写清楚：做了什么、你的贡献是什么、结果怎么样。</p>
+            <p>
+              <a href="#">Paper</a> /
+              <a href="#">Code</a> /
+              <a href="#">Demo</a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contact" class="section">
+      <div class="container card">
+        <h2 class="section-title">联系方式</h2>
+        <p>欢迎联系我进行学术交流、项目合作或申请相关沟通。</p>
+        <div class="contact-links">
+          <a href="mailto:your_email@example.com">邮箱</a>
+          <a href="https://github.com/yourname" target="_blank">GitHub</a>
+          <a href="https://www.linkedin.com/in/yourname" target="_blank">LinkedIn</a>
+          <a href="cv.pdf" target="_blank">CV</a>
+        </div>
+        <p style="margin-top:16px;color:var(--muted);">微信号 / 电话：这里填</p>
+      </div>
+    </section>
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      © 2026 你的名字. Built with GitHub Pages.
+    </div>
+  </footer>
+</body>
+</html>
