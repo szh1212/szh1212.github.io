@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Haoyu Gu - Personal Portfolio</title>
-  <meta name="description" content="Personal homepage of Haoyu Gu" />
+  <title>Zhiheng Song - Personal Portfolio</title>
+  <meta name="description" content="Personal homepage of Zhiheng Song" />
 
   <link
     rel="stylesheet"
@@ -182,6 +182,115 @@
       line-height: 1.2;
     }
 
+    .education-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.education-section h2 {
+  display: none;
+}
+
+.edu-timeline {
+  position: relative;
+  max-width: 1180px;
+  margin: 40px auto 0;
+  padding-left: 140px;
+}
+
+.edu-timeline::before {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e1e7ef;
+}
+
+.edu-block {
+  position: relative;
+  margin-bottom: 44px;
+}
+
+.edu-date {
+  position: absolute;
+  left: -140px;
+  top: 0;
+  background: #edf2f7;
+  color: #2c3e50;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.edu-card {
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 6px;
+  padding: 56px 36px 46px;
+  color: #2c3e50;
+}
+
+.edu-card h3 {
+  margin: 0 0 10px;
+  font-size: 22px;
+  color: #2c3e50;
+  font-weight: 800;
+}
+
+.edu-card p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #334155;
+  margin: 18px 0;
+}
+
+.edu-subtitle {
+  font-weight: 600;
+  color: #4b5563 !important;
+}
+
+.edu-link {
+  color: #0f7890;
+  text-decoration: underline;
+  font-style: italic;
+}
+
+.edu-note {
+  color: #7b8794;
+  font-style: italic;
+}
+
+.edu-card strong {
+  font-weight: 800;
+  color: #2c3e50;
+}
+
+@media (max-width: 760px) {
+  .edu-timeline {
+    padding-left: 0;
+  }
+
+  .edu-timeline::before {
+    display: none;
+  }
+
+  .edu-date {
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .edu-card {
+    padding: 28px 22px;
+  }
+}
+
     section p {
       margin: 0 0 16px;
       font-size: 18px;
@@ -273,8 +382,7 @@
       </div>
 
       <div class="intro">
-        I'm passionate about Music Representation and Generation,
-        Affective Computing, and Brain-Computer Interface.
+        I'm passionate about Embodied Intelligence.
         Let's build something interesting together! 🚀
       </div>
 
@@ -294,16 +402,16 @@
 
       <div class="contact">
         <div class="contact-row">
-          <span><i class="fa-solid fa-phone"></i> +86 18100607076</span>
+          <span><i class="fa-solid fa-phone"></i> +86 18922863145</span>
           <span>(WeChat: same number)</span>
           <span>|</span>
-          <span><i class="fa-solid fa-envelope"></i> <a href="mailto:ghy20050104@gmail.com">ghy20050104@gmail.com</a></span>
+          <span><i class="fa-solid fa-envelope"></i> <a href="mailto:18922863145@163.com">18922863145@163.com</a></span>
         </div>
 
         <div class="location">
           <i class="fa-solid fa-location-dot"></i>
-          Nanjing, Jiangsu, China |
-          <em>Last Update: April 19, 2026</em>
+          Guangzhou, Guangdong, China |
+          <em>Last Update: April 27, 2026</em>
         </div>
       </div>
     </div>
@@ -315,27 +423,54 @@
         <h2>About Me</h2>
         <p>
           I am an undergraduate student majoring in Artificial Intelligence, with interests in
-          music generation, affective computing, multimodal interaction, and embodied intelligence.
+          embodied intelligence.
         </p>
         <p>
-          My previous work covers machine learning, 3D vision, robot learning, music generation,
-          and AI-driven application development. I enjoy building systems that connect algorithms
-          with real-world interaction and creative expression.
+          My previous work covers machine learning, 3D vision, robot learning, and AI-driven application development. 
+          I enjoy building systems that connect algorithms with real-world interaction and creative expression.
         </p>
       </section>
 
-      <section id="education">
-        <h2>Education</h2>
-        <div class="item">
-          <h3>Your University</h3>
-          <div class="time">2023 - Present</div>
-          <p>B.Eng. in Artificial Intelligence</p>
-          <p>
-            Relevant coursework: Machine Learning, Deep Learning, Computer Vision,
-            Data Structures, Computer Networks, Digital Systems, and Robotics.
-          </p>
-        </div>
-      </section>
+      <section id="education" class="education-section">
+  <h2>Education</h2>
+
+  <div class="edu-timeline">
+
+    <div class="edu-block">
+      <div class="edu-date">Sep. 2023 – Present</div>
+
+      <div class="edu-card">
+        <h3>South China University of Technology</h3>
+
+        <p class="edu-subtitle">
+          985 Project University, Excellence 9 (E9) League Member
+        </p>
+
+        <p>
+          <a href="#" class="edu-link">School of Future Technology</a>
+          <span class="edu-note"> - One of China's first 12 Future Technology Schools</span>
+        </p>
+
+        <p>
+          <strong>Major:</strong> Artificial Intelligence
+        </p>
+
+        <p>
+          <strong>Academic Performance:</strong> GPA 3.75
+        </p>
+
+        <p>
+          <strong>Core Courses:</strong>
+          C++ Programming, Python Programming, Discrete Mathematics, Data Structures,
+          Computer Networks, Computer Organization and Architecture, Database Systems,
+          Circuit Analysis and Analog Circuits, Digital Circuits, Signals and Systems,
+          Digital Signal Processing, Machine Learning, Deep Learning and Computer Vision
+        </p>
+      </div>
+    </div>
+
+  </div>
+</section>
 
       <section id="research">
         <h2>Research Interests</h2>
