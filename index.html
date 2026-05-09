@@ -271,6 +271,93 @@
   color: #2c3e50;
 }
 
+.honors-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.honors-section h2 {
+  text-align: center;
+  font-size: clamp(42px, 6vw, 64px);
+  color: var(--primary);
+  margin: 0 0 72px;
+}
+
+.honors-timeline {
+  position: relative;
+  max-width: 1180px;
+  margin: 40px auto 0;
+  padding-left: 140px;
+}
+
+.honors-timeline::before {
+  content: "";
+  position: absolute;
+  left: 95px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: #e1e7ef;
+}
+
+.honor-block {
+  position: relative;
+  margin-bottom: 44px;
+}
+
+.honor-block::before {
+  content: "";
+  position: absolute;
+  left: -51px;
+  top: 18px;
+  width: 10px;
+  height: 10px;
+  background: #1479ff;
+  border-radius: 50%;
+  z-index: 2;
+}
+
+.honor-date {
+  position: absolute;
+  left: -140px;
+  top: 0;
+  background: #edf2f7;
+  color: #2c3e50;
+  padding: 8px 14px;
+  border-radius: 4px;
+  font-weight: 700;
+  font-size: 15px;
+  white-space: nowrap;
+}
+
+.honor-card {
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 8px;
+  padding: 42px 36px;
+  color: #2c3e50;
+}
+
+.honor-card h3 {
+  margin: 0 0 18px;
+  font-size: 22px;
+  color: #2c3e50;
+  font-weight: 800;
+}
+
+.honor-card p {
+  font-size: 18px;
+  line-height: 1.75;
+  color: #334155;
+  margin: 12px 0;
+}
+
+.honor-org {
+  color: #8b96a3 !important;
+}
+
 @media (max-width: 760px) {
   .edu-timeline {
     padding-left: 0;
@@ -288,6 +375,34 @@
 
   .edu-card {
     padding: 28px 22px;
+  }
+
+    .honors-timeline {
+    padding-left: 0;
+  }
+
+  .honors-timeline::before {
+    display: none;
+  }
+
+  .honor-block::before {
+    display: none;
+  }
+
+  .honor-date {
+    position: static;
+    display: inline-block;
+    margin-bottom: 10px;
+  }
+
+  .honor-card {
+    padding: 28px 22px;
+  }
+
+  .honors-section h2 {
+    text-align: left;
+    font-size: 42px;
+    margin-bottom: 36px;
   }
 }
 
@@ -521,49 +636,66 @@
     
   </div>
 </section>
-      <section id="honors">
+      
+      <section id="honors" class="honors-section">
   <h2>Honors & Awards</h2>
 
-  <div class="item">
-    <h3>National College English Translation Competition (NETCCS)</h3>
-    <div class="time">Jan. 2026</div>
-    <p>Second Prize, Guangdong Provincial Level</p>
-    <p>National College English Translation Competition Committee</p>
-  </div>
+  <div class="honors-timeline">
 
-  <div class="item">
-    <h3>National Career Planning Competition</h3>
-    <div class="time">Dec. 2025</div>
-    <p>First Prize, College Level; Second Prize, University Level</p>
-    <p>South China University of Technology</p>
-  </div>
+    <div class="honor-block">
+      <div class="honor-date">Jan. 2026</div>
+      <div class="honor-card">
+        <h3>National College English Translation Competition (NETCCS)</h3>
+        <p>Second Prize, Guangdong Provincial Level</p>
+        <p class="honor-org">National College English Translation Competition Committee</p>
+      </div>
+    </div>
 
-  <div class="item">
-    <h3>University Scholarship</h3>
-    <div class="time">Nov. 2025</div>
-    <p>University-level Scholarship</p>
-    <p>South China University of Technology</p>
-  </div>
+    <div class="honor-block">
+      <div class="honor-date">Dec. 2025</div>
+      <div class="honor-card">
+        <h3>National Career Planning Competition</h3>
+        <p>First Prize, College Level; Second Prize, University Level</p>
+        <p class="honor-org">South China University of Technology</p>
+      </div>
+    </div>
 
-  <div class="item">
-    <h3>Advanced Individual in Social Practice</h3>
-    <div class="time">Oct. 2025</div>
-    <p>University-level Honor</p>
-    <p>South China University of Technology</p>
-  </div>
+    <div class="honor-block">
+      <div class="honor-date">Nov. 2025</div>
+      <div class="honor-card">
+        <h3>University Scholarship</h3>
+        <p>University-level Scholarship</p>
+        <p class="honor-org">South China University of Technology</p>
+      </div>
+    </div>
 
-  <div class="item">
-    <h3>Multi-Energy Vehicle Relay Competition</h3>
-    <div class="time">May 2025</div>
-    <p>Second Prize</p>
-    <p>Competition Committee / University-level Innovation Competition</p>
-  </div>
+    <div class="honor-block">
+      <div class="honor-date">Oct. 2025</div>
+      <div class="honor-card">
+        <h3>Advanced Individual in Social Practice</h3>
+        <p>University-level Honor</p>
+        <p class="honor-org">South China University of Technology</p>
+      </div>
+    </div>
 
-  <div class="item">
-    <h3>Baidu Brain Cup</h3>
-    <div class="time">Nov. 2023</div>
-    <p>Second Prize, College Level</p>
-    <p>Baidu / Baidu AI Studio</p>
+    <div class="honor-block">
+      <div class="honor-date">May 2025</div>
+      <div class="honor-card">
+        <h3>Multi-Energy Vehicle Relay Competition</h3>
+        <p>Second Prize</p>
+        <p class="honor-org">Competition Committee / University-level Innovation Competition</p>
+      </div>
+    </div>
+
+    <div class="honor-block">
+      <div class="honor-date">Nov. 2023</div>
+      <div class="honor-card">
+        <h3>Baidu Brain Cup</h3>
+        <p>Second Prize, College Level</p>
+        <p class="honor-org">Baidu / Baidu AI Studio</p>
+      </div>
+    </div>
+
   </div>
 </section>
       
