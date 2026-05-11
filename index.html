@@ -463,6 +463,144 @@
       background: var(--light-bg);
     }
 
+    .publications-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.publications-section h2 {
+  text-align: center;
+  font-size: clamp(42px, 6vw, 64px);
+  color: #2c3e50;
+  margin: 0 0 56px;
+}
+
+.publication-card {
+  display: grid;
+  grid-template-columns: 320px 1fr;
+  gap: 38px;
+  align-items: center;
+  background: #ffffff;
+  border: 1px solid #edf1f5;
+  border-radius: 24px;
+  padding: 36px 42px 36px 28px;
+  box-shadow: 0 12px 36px rgba(28, 45, 80, 0.06);
+}
+
+.pub-left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.pub-image-box {
+  width: 100%;
+  background: #ffffff;
+  border-radius: 16px;
+  padding: 18px;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.08);
+  position: relative;
+}
+
+.pub-tag {
+  position: absolute;
+  top: 18px;
+  left: 18px;
+  background: #4f83f1;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  padding: 9px 16px;
+  border-radius: 8px;
+  z-index: 2;
+}
+
+.pub-image {
+  width: 100%;
+  height: 220px;
+  object-fit: contain;
+  display: block;
+  margin-top: 24px;
+}
+
+.pub-buttons {
+  display: flex;
+  gap: 18px;
+  margin-top: 22px;
+}
+
+.pub-btn {
+  min-width: 96px;
+  text-align: center;
+  padding: 12px 18px;
+  border-radius: 8px;
+  color: #ffffff;
+  font-weight: 700;
+  font-size: 16px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.pub-btn:hover {
+  transform: translateY(-2px);
+  opacity: 0.88;
+}
+
+.pub-btn.paper {
+  background: #e53935;
+}
+
+.pub-btn.doi {
+  background: #00a37a;
+}
+
+.pub-right h3 {
+  margin: 0 0 28px;
+  font-size: 28px;
+  line-height: 1.45;
+  color: #2c3e50;
+  font-weight: 800;
+}
+
+.pub-venue {
+  font-size: 19px;
+  color: #6f7a86;
+  font-style: italic;
+  font-weight: 700;
+  padding-bottom: 18px;
+  border-bottom: 1px solid #e8edf5;
+  margin-bottom: 24px;
+}
+
+.pub-description {
+  font-size: 18px;
+  line-height: 1.9;
+  color: #6b7280;
+  margin: 0;
+}
+
+@media (max-width: 860px) {
+  .publication-card {
+    grid-template-columns: 1fr;
+    padding: 26px 22px;
+  }
+
+  .publications-section h2 {
+    text-align: left;
+    font-size: 42px;
+    margin-bottom: 36px;
+  }
+
+  .pub-image {
+    height: 240px;
+  }
+
+  .pub-right h3 {
+    font-size: 24px;
+    margin-top: 8px;
+  }
+}
     @media (max-width: 720px) {
       .icons {
         gap: 36px;
@@ -732,6 +870,59 @@
         </div>
       </section>
 
+      <section id="publications" class="publications-section">
+  <h2>Publications</h2>
+
+  <div class="publication-card">
+    <div class="pub-left">
+      <div class="pub-image-box">
+        <div class="pub-tag">AIDF 2025</div>
+        <img
+          class="pub-image"
+          src="ga-news-lstm.png"
+          alt="GA-NEWS-LSTM model architecture"
+        />
+      </div>
+
+      <div class="pub-buttons">
+        <a
+          class="pub-btn paper"
+          href="Article.pdf"
+          target="_blank"
+        >
+          Paper
+        </a>
+
+        <a
+          class="pub-btn doi"
+          href="https://doi.org/10.1145/3764727.3764733"
+          target="_blank"
+        >
+          DOI
+        </a>
+      </div>
+    </div>
+
+    <div class="pub-right">
+      <h3>
+        Stock Price Prediction Method Based on Optimized LSTM and Quantified News Sentiment
+      </h3>
+
+      <div class="pub-venue">
+        AIDF 2025 · Published
+      </div>
+
+      <p class="pub-description">
+        Proposed a GA-NEWS-LSTM framework that integrates historical stock data with quantified
+        financial news sentiment for stock price forecasting. The model combines BERT-based sentiment
+        analysis, dynamic sentiment weighting, a gating mechanism, and BiLSTM architecture optimized
+        by a Genetic Algorithm. Served as the second author and contributed to model design,
+        methodology development, and paper writing.
+      </p>
+    </div>
+  </div>
+</section>
+      
       <section id="projects">
         <h2>Selected Projects</h2>
 
