@@ -96,7 +96,7 @@ section:hover,
 }
 
 .nav-container {
-  max-width: 1180px;
+  max-width: 1380px;
   height: 74px;
   margin: 0 auto;
   padding: 0 24px;
@@ -148,6 +148,107 @@ section:hover,
   transform: scaleX(1);
 }
 
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.nav-icon-btn,
+.lang-btn {
+  border: 1px solid #e1e7ef;
+  background: #ffffff;
+  color: #2c3e50;
+  height: 48px;
+  min-width: 48px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 18px;
+  font-weight: 800;
+  cursor: pointer;
+  box-shadow: 0 8px 22px rgba(28, 45, 80, 0.10);
+  transition: transform 0.22s ease, box-shadow 0.22s ease, background 0.22s ease;
+}
+
+.lang-btn {
+  padding: 0 22px;
+}
+
+.nav-icon-btn:hover,
+.lang-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 14px 34px rgba(28, 45, 80, 0.16);
+}
+
+.nav-icon-btn i {
+  color: #f4c430;
+}
+
+/* ================= Dark Mode ================= */
+
+body.dark-mode {
+  --bg: #0f172a;
+  --light-bg: #111827;
+  --text: #d1d5db;
+  --muted: #9ca3af;
+  --border: #263244;
+  background: #0f172a;
+  color: #d1d5db;
+}
+
+body.dark-mode .site-header {
+  background: rgba(15, 23, 42, 0.92);
+  border-bottom: 1px solid #263244;
+}
+
+body.dark-mode section,
+body.dark-mode .edu-card,
+body.dark-mode .honor-card,
+body.dark-mode .item,
+body.dark-mode .publication-card,
+body.dark-mode .internship-card,
+body.dark-mode .video-card,
+body.dark-mode .pub-image-box {
+  background: #182235;
+  border-color: #263244;
+}
+
+body.dark-mode .nav-logo,
+body.dark-mode .nav-links a,
+body.dark-mode .edu-card h3,
+body.dark-mode .honor-card h3,
+body.dark-mode .item h3,
+body.dark-mode .pub-right h3,
+body.dark-mode .internship-content h3,
+body.dark-mode .demo-title,
+body.dark-mode .video-group h4 {
+  color: #e5e7eb;
+}
+
+body.dark-mode p,
+body.dark-mode section p,
+body.dark-mode .edu-card p,
+body.dark-mode .honor-card p,
+body.dark-mode .internship-content p,
+body.dark-mode .internship-content ul,
+body.dark-mode .pub-description,
+body.dark-mode .video-caption {
+  color: #cbd5e1;
+}
+
+body.dark-mode .nav-icon-btn,
+body.dark-mode .lang-btn {
+  background: #182235;
+  color: #e5e7eb;
+  border-color: #334155;
+}
+
+body.dark-mode footer {
+  background: #111827;
+}
+    
 @media (max-width: 900px) {
   .nav-container {
     height: auto;
@@ -939,21 +1040,31 @@ section:hover,
 
 <body>
 
-  <header class="site-header">
-    <div class="nav-container">
-      <a href="#top" class="nav-logo">Zhiheng Song</a>
+<header class="site-header">
+  <div class="nav-container">
+    <a href="#top" class="nav-logo">Zhiheng Song</a>
 
-      <nav class="nav-links">
-        <a href="#about">About Me</a>
-        <a href="#education">Education</a>
-        <a href="#honors">Honors & Awards</a>
-        <a href="#research">Research</a>
-        <a href="#publications">Publications</a>
-        <a href="#internship">Internship</a>
-        <a href="#contact">Contact</a>
-      </nav>
+    <nav class="nav-links">
+      <a href="#about">About Me</a>
+      <a href="#education">Education</a>
+      <a href="#honors">Honors & Awards</a>
+      <a href="#research">Research</a>
+      <a href="#publications">Publications</a>
+      <a href="#internship">Internship</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
+        <i class="fa-solid fa-moon"></i>
+      </button>
+
+      <button class="lang-btn" id="lang-toggle">
+        中文
+      </button>
     </div>
-  </header>
+  </div>
+</header>
 
   <main class="hero" id="top">
     <div class="hero-inner">
@@ -1406,6 +1517,25 @@ section:hover,
 
   fadeSections.forEach((section) => {
     observer.observe(section);
+  });
+
+  const themeToggle = document.getElementById('theme-toggle');
+  const themeIcon = themeToggle.querySelector('i');
+
+  themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+
+    if (document.body.classList.contains('dark-mode')) {
+      themeIcon.className = 'fa-solid fa-sun';
+    } else {
+      themeIcon.className = 'fa-solid fa-moon';
+    }
+  });
+
+  const langToggle = document.getElementById('lang-toggle');
+
+  langToggle.addEventListener('click', () => {
+    langToggle.textContent = langToggle.textContent.trim() === '中文' ? 'EN' : '中文';
   });
 </script>
   
