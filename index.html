@@ -787,6 +787,19 @@
         grid-template-columns: 1fr;
       }
     }
+
+  /* ================= Scroll Fade-in Animation ================= */
+
+.fade-in-section {
+  opacity: 0;
+  transform: translateY(48px);
+  transition: opacity 0.8s ease, transform 0.8s ease;
+}
+
+.fade-in-section.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
   </style>
 </head>
 
@@ -840,7 +853,7 @@
 
   <div class="sections">
     <div class="container">
-      <section id="about">
+      <section id="about" class="fade-in-section">
         <h2>About Me</h2>
         <p>
           I am an undergraduate student majoring in Artificial Intelligence, with interests in
@@ -852,7 +865,7 @@
         </p>
       </section>
 
-      <section id="education" class="education-section">
+      <section id="education" class="education-section fade-in-section">
   <h2>Education</h2>
 
   <div class="edu-timeline">
@@ -935,7 +948,7 @@
   </div>
 </section>
       
-      <section id="honors" class="honors-section">
+      <section id="honors" class="honors-section fade-in-section">
   <h2>Honors & Awards</h2>
 
   <div class="honors-timeline">
@@ -997,7 +1010,7 @@
   </div>
 </section>
       
-      <section id="research">
+      <section id="research" class="fade-in-section">
         <h2>Research Interests</h2>
         <div class="grid">
           <div class="item">
@@ -1030,7 +1043,7 @@
         </div>
       </section>
 
-      <section id="publications" class="publications-section">
+      <section id="publications" class="publications-section fade-in-section">
   <h2>Publications</h2>
 
   <div class="publication-card">
@@ -1083,7 +1096,7 @@
   </div>
 </section>
 
-      <section id="internship" class="internship-section">
+      <section id="internship" class="internship-section fade-in-section">
   <h2>Internship Experience</h2>
 
   <div class="internship-card">
@@ -1209,7 +1222,7 @@
   </div>
 </section>
       
-      <section id="projects">
+      <section id="projects" class="fade-in-section">
         <h2>Selected Projects</h2>
 
         <div class="item">
@@ -1251,14 +1264,14 @@
         </div>
       </section>
 
-      <section id="contact">
+      <section id="contact" class="fade-in-section">
         <h2>Contact</h2>
         <p>
           Feel free to reach out for research discussion, project collaboration, or academic communication.
         </p>
         <p>
           Email:
-          <a href="mailto:ghy20050104@gmail.com">ghy20050104@gmail.com</a>
+          <a href="18922863145@163.com">18922863145@163.com</a>
         </p>
         <p>
           GitHub:
@@ -1269,7 +1282,26 @@
   </div>
 
   <footer>
-    © 2026 Haoyu Gu. Built with GitHub Pages.
+    © 2026 Zhiheng Song. Built with GitHub Pages.
   </footer>
+
+<script>
+  const fadeSections = document.querySelectorAll('.fade-in-section');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, {
+    threshold: 0.15
+  });
+
+  fadeSections.forEach((section) => {
+    observer.observe(section);
+  });
+</script>
+  
 </body>
 </html>
