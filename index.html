@@ -37,6 +37,52 @@
       color: var(--text);
       line-height: 1.7;
     }
+
+/* ================= Card Hover Effect ================= */
+
+section,
+.edu-card,
+.honor-card,
+.item,
+.publication-card,
+.internship-card,
+.video-card {
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.edu-card,
+.honor-card,
+.item {
+  box-shadow: 0 8px 24px rgba(28, 45, 80, 0.06);
+}
+    
+section:hover,
+.edu-card:hover,
+.honor-card:hover,
+.item:hover,
+.publication-card:hover,
+.internship-card:hover,
+.video-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 52px rgba(28, 45, 80, 0.14);
+  border-color: #dbe5f3;
+}
+
+.education-section,
+.honors-section,
+.publications-section,
+.internship-section {
+  box-shadow: none;
+}
+
+.education-section:hover,
+.honors-section:hover,
+.publications-section:hover,
+.internship-section:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}  
     
 /* ================= Top Navigation Bar ================= */
 
