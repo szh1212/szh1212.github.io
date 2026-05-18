@@ -252,15 +252,33 @@ body.dark-mode footer {
 @media (max-width: 900px) {
   .nav-container {
     height: auto;
-    padding: 18px 20px;
-    align-items: flex-start;
-    gap: 14px;
-    flex-direction: column;
+    padding: 16px 18px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 12px 14px;
+  }
+
+  .nav-logo {
+    order: 1;
+    font-size: 18px;
+    flex-shrink: 1;
+  }
+
+  .nav-actions {
+    order: 2;
+    margin-left: auto;
+    gap: 10px;
+    flex-shrink: 0;
   }
 
   .nav-links {
+    order: 3;
+    width: 100%;
+    display: flex;
     flex-wrap: wrap;
-    gap: 16px 24px;
+    gap: 14px 22px;
+    margin-top: 6px;
   }
 
   .nav-links a {
@@ -269,6 +287,17 @@ body.dark-mode footer {
 
   .nav-links a::after {
     bottom: -6px;
+  }
+
+  .nav-icon-btn,
+  .lang-btn {
+    height: 40px;
+    min-width: 40px;
+    font-size: 15px;
+  }
+
+  .lang-btn {
+    padding: 0 18px;
   }
 }
     
@@ -1044,15 +1073,15 @@ body.dark-mode footer {
   <div class="nav-container">
     <a href="#top" class="nav-logo">Zhiheng Song</a>
 
-    <nav class="nav-links">
-      <a href="#about">About Me</a>
-      <a href="#education">Education</a>
-      <a href="#honors">Honors & Awards</a>
-      <a href="#research">Research</a>
-      <a href="#publications">Publications</a>
-      <a href="#internship">Internship</a>
-      <a href="#contact">Contact</a>
-    </nav>
+<nav class="nav-links">
+  <a href="#about" data-en="About Me" data-zh="关于我">About Me</a>
+  <a href="#education" data-en="Education" data-zh="教育经历">Education</a>
+  <a href="#honors" data-en="Honors & Awards" data-zh="荣誉奖项">Honors & Awards</a>
+  <a href="#research" data-en="Research" data-zh="研究方向">Research</a>
+  <a href="#publications" data-en="Publications" data-zh="论文发表">Publications</a>
+  <a href="#internship" data-en="Internship" data-zh="实习经历">Internship</a>
+  <a href="#contact" data-en="Contact" data-zh="联系方式">Contact</a>
+</nav>
 
     <div class="nav-actions">
       <button class="nav-icon-btn" id="theme-toggle" aria-label="Toggle dark mode">
@@ -1116,7 +1145,7 @@ body.dark-mode footer {
   <div class="sections">
     <div class="container">
       <section id="about" class="fade-in-section">
-        <h2>About Me</h2>
+        <h2 data-en="About Me" data-zh="关于我">About Me</h2>
         <p>
           I am an undergraduate student majoring in Artificial Intelligence, with interests in
           embodied intelligence.
@@ -1128,7 +1157,7 @@ body.dark-mode footer {
       </section>
 
       <section id="education" class="education-section fade-in-section">
-  <h2>Education</h2>
+  <h2 data-en="Education" data-zh="教育经历">Education</h2>
 
   <div class="edu-timeline">
 
@@ -1211,7 +1240,7 @@ body.dark-mode footer {
 </section>
       
       <section id="honors" class="honors-section fade-in-section">
-  <h2>Honors & Awards</h2>
+  <h2 data-en="Honors & Awards" data-zh="荣誉奖项">Honors & Awards</h2>
 
   <div class="honors-timeline">
 
@@ -1273,7 +1302,7 @@ body.dark-mode footer {
 </section>
       
      <section id="research" class="fade-in-section">
-  <h2>Research Interests</h2>
+  <h2 data-en="Research Interests" data-zh="研究方向">Research Interests</h2>
 
   <div class="grid">
     <div class="item">
@@ -1303,7 +1332,7 @@ body.dark-mode footer {
 </section>
 
       <section id="publications" class="publications-section fade-in-section">
-  <h2>Publications</h2>
+  <h2 data-en="Publications" data-zh="论文发表">Publications</h2>
 
   <div class="publication-card">
     <div class="pub-left">
@@ -1356,7 +1385,7 @@ body.dark-mode footer {
 </section>
 
       <section id="internship" class="internship-section fade-in-section">
-  <h2>Internship Experience</h2>
+  <h2 data-en="Internship Experience" data-zh="实习经历">Internship Experience</h2>
 
   <div class="internship-card">
     <div class="internship-left">
@@ -1482,7 +1511,7 @@ body.dark-mode footer {
 </section>
 
       <section id="contact" class="fade-in-section">
-        <h2>Contact</h2>
+        <h2 data-en="Contact" data-zh="联系方式">Contact</h2>
         <p>
           Feel free to reach out for research discussion, project collaboration, or academic communication.
         </p>
@@ -1532,11 +1561,19 @@ body.dark-mode footer {
     }
   });
 
-  const langToggle = document.getElementById('lang-toggle');
+  let currentLang = 'en';
 
-  langToggle.addEventListener('click', () => {
-    langToggle.textContent = langToggle.textContent.trim() === '中文' ? 'EN' : '中文';
+const langToggle = document.getElementById('lang-toggle');
+
+langToggle.addEventListener('click', () => {
+  currentLang = currentLang === 'en' ? 'zh' : 'en';
+
+  document.querySelectorAll('[data-en][data-zh]').forEach((element) => {
+    element.textContent = element.getAttribute(`data-${currentLang}`);
   });
+
+  langToggle.textContent = currentLang === 'en' ? '中文' : 'EN';
+});
 </script>
   
 </body>
