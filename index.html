@@ -446,6 +446,95 @@ body.dark-mode footer {
       line-height: 1.2;
     }
 
+    /* ================= About Me Section ================= */
+
+.about-section {
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 0;
+}
+
+.about-section:hover {
+  transform: none;
+  box-shadow: none;
+  border-color: transparent;
+}
+
+.about-section h2 {
+  text-align: center;
+  font-size: clamp(42px, 6vw, 64px);
+  color: var(--primary);
+  margin: 0 0 56px;
+}
+
+.about-card {
+  max-width: 820px;
+  margin: 0 auto 42px;
+  background: #ffffff;
+  border: 1px solid #dfe5ec;
+  border-radius: 24px;
+  padding: 64px 56px;
+  box-shadow: 0 14px 38px rgba(28, 45, 80, 0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+}
+
+.about-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 22px 52px rgba(28, 45, 80, 0.14);
+  border-color: #dbe5f3;
+}
+
+.about-card h3 {
+  margin: 0 0 22px;
+  font-size: 30px;
+  line-height: 1.3;
+  color: #2c3e50;
+  font-weight: 800;
+}
+
+.about-card p {
+  margin: 0;
+  font-size: 21px;
+  line-height: 1.85;
+  color: #6b7280;
+}
+
+body.dark-mode .about-card {
+  background: #182235;
+  border-color: #263244;
+}
+
+body.dark-mode .about-card h3 {
+  color: #e5e7eb;
+}
+
+body.dark-mode .about-card p {
+  color: #cbd5e1;
+}
+
+@media (max-width: 760px) {
+  .about-section h2 {
+    text-align: center;
+    font-size: 42px;
+    margin-bottom: 42px;
+  }
+
+  .about-card {
+    margin-bottom: 32px;
+    padding: 44px 34px;
+    border-radius: 18px;
+  }
+
+  .about-card h3 {
+    font-size: 26px;
+  }
+
+  .about-card p {
+    font-size: 18px;
+    line-height: 1.75;
+  }
+}
     .education-section {
   background: transparent;
   border: none;
@@ -1144,17 +1233,30 @@ body.dark-mode footer {
 
   <div class="sections">
     <div class="container">
-      <section id="about" class="fade-in-section">
-        <h2 data-en="About Me" data-zh="关于我">About Me</h2>
-        <p>
-          I am an undergraduate student majoring in Artificial Intelligence, with interests in
-          embodied intelligence.
-        </p>
-        <p>
-          My previous work covers machine learning, 3D vision, robot learning, and AI-driven application development. 
-          I enjoy building systems that connect algorithms with real-world interaction and creative expression.
-        </p>
-      </section>
+      
+ <section id="about" class="about-section fade-in-section">
+  <h2 data-en="About Me" data-zh="关于我">About Me</h2>
+
+  <div class="about-card">
+    <h3 data-en="Current Status" data-zh="当前状态">Current Status</h3>
+    <p
+      data-en="I'm a junior undergraduate student majoring in Artificial Intelligence at the School of Future Technology, South China University of Technology (SCUT)."
+      data-zh="我是华南理工大学未来技术学院人工智能专业的本科生。"
+    >
+      I'm a junior undergraduate student majoring in Artificial Intelligence at the School of Future Technology, South China University of Technology (SCUT).
+    </p>
+  </div>
+
+  <div class="about-card">
+    <h3 data-en="Location" data-zh="所在地">Location</h3>
+    <p
+      data-en="Based in Shenzhen, Guangdong Province. School located in Guangzhou, Guangdong Province."
+      data-zh="居住在广东省深圳市，学校位于广东省广州市。"
+    >
+      Based in Shenzhen, Guangdong Province. School located in Guangzhou, Guangdong Province.
+    </p>
+  </div>
+</section>
 
       <section id="education" class="education-section fade-in-section">
   <h2 data-en="Education" data-zh="教育经历">Education</h2>
